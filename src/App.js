@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import SignIn from './js/Components/SignIn';
+import EmailForm from './EmailForm';
 
 
 class App extends React.Component {
@@ -48,7 +49,13 @@ class App extends React.Component {
             )
         }
 
-        return <SignIn companyName = {this.state.companyName} forgotPassword = {this.forgotPassword}/>;
+        return (
+            <>
+            <EmailForm />
+            <SignIn companyName = {this.state.companyName} forgotPassword = {this.forgotPassword}/>;
+            </>
+        ) 
+            
     }
 }
 
