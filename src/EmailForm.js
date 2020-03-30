@@ -8,8 +8,14 @@ export default  class EmailForm extends React.Component {
         super(props);
         this.disableButton = this.disableButton.bind(this);
         this.enableButton =  this.enableButton.bind(this);
-        this.state =  { canSubmit : false}
+        this.state =  { 
+                        canSubmit : false,
+                        data:null
+                    }
     }
+
+
+
     disableButton() {
         this.setState ({
             canSubmit : false 
@@ -31,10 +37,13 @@ export default  class EmailForm extends React.Component {
 
     render() {
         return(
-            <Formsy onValidSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
-                <MyInput name="email" validations="isEmail" validationError="This is not a valid email!!" required />
-                <button type="submit" disabled = {!this.state.canSubmit}>submit</button> 
-            </Formsy>   
+            <>   
+                <Formsy onValidSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
+                    <MyInput name="email" validations="isEmail" validationError="This is not a valid email!!" required />
+                    <button type="submit" disabled = {!this.state.canSubmit}>submit</button> 
+
+                </Formsy>
+            </>   
         )
     }
 
